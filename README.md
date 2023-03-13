@@ -12,5 +12,11 @@ The only thing necessary would be a web browser to interpret the code.
 
 Follow the instructions given by the prompts then click the generate password button to create a copy-pastable password. If an answer besides "yes" or "Yes" is given it will default to not using that character selection.
 
-![alt text]()
-![alt text]()
+app on loading
+![alt text](./assets/images/passgenimg.jpg)
+
+app after prompts
+![alt text](./assets/images/passgenimg1.jpg)
+
+app after eventListener
+![alt text](./assets/images/passgenimg2.jpg)
