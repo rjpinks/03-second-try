@@ -3,6 +3,7 @@ var alphabet = "abcdefghijklmnopqrstuvwxyz";
 var bigAlphabet = alphabet.toUpperCase();
 var numbers = "0123456789";
 var specialCharacters = "!@$%^&*";
+var questionList = ""
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -17,15 +18,39 @@ var generateBtn = document.querySelector("#generate");
 // }
 
 // Add event listener to generate button
-var numberDesired = prompt("please select number of characters desired (1-126)");
+var numberDesired = prompt("please select number of characters desired (8-126)");
 var alphabetQ = prompt("do you want lower case letters? yes/no");
-var bigAplhabetQ = prompt("do you want upper case letters? yes/no");
+var bigAlphabetQ = prompt("do you want upper case letters? yes/no");
 var numbersQ = prompt("do you want numbers? yes/no");
 var specialCharactersQ = prompt("do you want special characters? yes/no");
 var numberDesiredNumeric = Number(numberDesired);
 
+//returns a random number
+function randomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 function writePassword () {
-  
+  if (alphabetQ === "yes" || alphabetQ === "Yes") {
+    //console.log("first if");
+    questionList = questionList + alphabet;
+  }
+  if (bigAlphabetQ === "yes" || bigAlphabetQ === "Yes") {
+    //console.log("second if");
+    questionList = questionList + bigAlphabet;
+  }
+  if (numbersQ === "yes" || numbersQ === "Yes") {
+    //console.log("third if");
+    questionList = questionList + numbers;
+  }
+  if (specialCharactersQ === "yes" || specialCharactersQ === "Yes") {
+    //console.log("forth if");
+    questionList = questionList + specialCharacters;
+  } 
+  if ( numberDesiredNumeric > 7 && numberDesiredNumeric < 127) {
+    //console.log("fifth if");
+    //console.log(questionList);
+  }
 }
 
 generateBtn.addEventListener("click", writePassword);
