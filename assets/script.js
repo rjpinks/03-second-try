@@ -4,6 +4,7 @@ var bigAlphabet = alphabet.toUpperCase();
 var numbers = "0123456789";
 var specialCharacters = "!@$%^&*";
 var questionList = ""
+var passwordText = document.querySelector("#password");
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
@@ -25,11 +26,6 @@ var numbersQ = prompt("do you want numbers? yes/no");
 var specialCharactersQ = prompt("do you want special characters? yes/no");
 var numberDesiredNumeric = Number(numberDesired);
 
-//returns a random number
-function randomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-
 function writePassword () {
   if (alphabetQ === "yes" || alphabetQ === "Yes") {
     //console.log("first if");
@@ -50,7 +46,15 @@ function writePassword () {
   if ( numberDesiredNumeric > 7 && numberDesiredNumeric < 127) {
     //console.log("fifth if");
     //console.log(questionList);
+    var passGen = "";
+    for (let index = 0; index < numberDesiredNumeric; index++) {
+      var rando = Math.floor(Math.random() * questionList.length);
+      passGen = passGen + questionList[rando];
+    }
+  console.log(passGen);
+  passwordText.value = passGen;
   }
+
 }
 
 generateBtn.addEventListener("click", writePassword);
